@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Meu Cardapio</title>
+    <script src="./js/modal-trigger.js"></script>
+    <script src="./js/manipula-carrinho.js"></script>
+    <script src="./js/render-page.js"></script>
+    <style>
+      .sticky-div {
+          z-index: 1;
+          background-color: white;
+          position: sticky;
+          top: 0px;
+          padding: 10px 0px;
+      }
+  </style>
+</head>
+<body>
+    <div class="section sticky-div">
+        <div class="tabs is-centered">
+            <ul>
+              <li class="is-active">
+                <a class="js-modal-trigger" data-target="modal-carrinho" onclick="renderizaCarrinho();">
+                  <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
+                  <span>Carrinho</span>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
+                  <span>Cardápio</span>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span>
+                  <span>Quem Somos</span>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
+                  <span>Contato</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+    </div>
+
+    <div class="section">
+        <div class="columns is-multiline">
+            <div class="column ">
+                <h1 class="title">Nossos Lanches</h1>
+                <div class="tile is-ancestor box level mb-5">
+                    <div class="tile is-parent">
+                      <article class="tile is-child has-text-centered-mobile">
+                        <figure class="image is-128x128 is-inline-block-mobile">
+                            <img src="https://bulma.io/images/placeholders/128x128.png">
+                          </figure>
+                      </article>
+                    </div>
+                    <div class="tile is-parent is-8">
+                      <article class="tile is-child">
+                        <p class="title">Pancho Simples</p>
+                        <p class="subtitle">R$ 9,00</p>
+                        <div class="content">
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis molestiae ipsam eos, est quia tempore.</p>
+                        </div>
+                      </article>
+                    </div>
+                    
+                    <div class="tile is-parent">
+                      <div class="tile is-child is-flex">
+                        <div class="dropdown mr-3" onclick="activateDrop(this);" style="height: 40px;">
+                          <div class="dropdown-trigger style="height: 40px;"">
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+                              <span>Adicionais e Observação</span>
+                              <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                              </span>
+                            </button>
+                          </div>
+                          <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item">
+                                <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+                              </div>
+                              <hr class="dropdown-divider">
+                              <div class="dropdown-item">
+                                <p>You simply need to use a <code>&lt;div&gt;</code> instead.</p>
+                              </div>
+                              <hr class="dropdown-divider">
+                              <a href="#" class="dropdown-item">
+                                This is a link
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <p class="buttons">
+                          <div class="button has-background-primary-dark" onclick="teste();">
+                            <span class="icon is-small">
+                              <i class="fas fa-cart-plus has-text-white"></i>
+                            </span>
+                          </div>
+                        </p>
+                        
+                      </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="modal-carrinho">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Seu Pedido</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body" id="carrinho">
+          
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success">Fazer Pedido</button>
+          <button class="button" onclick="limpaCarrinho();">Limpar Carrinho</button>
+        </footer>
+      </div>
+    </div>
+</body>
+</html>
