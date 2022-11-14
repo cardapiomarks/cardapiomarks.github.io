@@ -1,13 +1,14 @@
 
 //objeto lanche
-function Lanche(ativo ,cat, nome, preco, desc, ingred) {
+function Lanche(categoriaAtiva,ingredientesAtivo ,cat, nome, preco, desc, ingred) {
 
-    this.ativo = (ativo.v == "Sim") ? true : false;
+    this.ativo = ((categoriaAtiva.v == "Sim") && (ingredientesAtivo.v == "Sim")) ? true : false;
     this.categoria = cat
     this.nome = nome;
     this.preco = preco;
     this.desc = desc;
     this.ingredientes = ingred;
+
 
     this.ingredientesParaTexto = function(){
 
@@ -30,6 +31,67 @@ function Lanche(ativo ,cat, nome, preco, desc, ingred) {
 
     }
 
+    
+
+}
+
+//busca adicionais
+
+function getAdicionaisPlanilha(){
+
+  const sheetID = "1xkdn7hRifJxXMjexXxCPMBpbPrMZnwbRC7Tth8RwTS0"
+  const url = "https://docs.google.com/spreadsheets/d/"
+  const query1 = `/gviz/tq?gid=1343709077`
+
+  const endpoint1 = `${url}${sheetID}${query1}`;
+  
+  var adicionaisElement = "";
+
+  //console.log(endpoint1);
+
+  fetch(endpoint1)
+  .then(response => response.text())
+  .then(data => {
+
+    //console.log(data);
+    const temp = data.substring(47).slice(0,-2);
+    //console.log(temp);
+    const json = JSON.parse(temp);
+    //console.log(json);
+    const rows = json.table.rows;
+    //console.log(rows);
+    const dropWrapper = document.getElementsByClassName("dropWrapper");
+
+    //console.log(dropWrapper);
+
+    rows.forEach(element => {
+
+      if (element.c[7] != null && element.c[8] != null && element.c[9] != null) {
+        //significa que tem todas as informações do adicional
+        if(element.c[8].v != "Não"){
+          //significa que o adicional está disponível e pode aparecer para o cliente
+          //console.log(element.c[7].v);
+
+          adicionaisElement = adicionaisElement + `<label class="checkbox is-flex is-justify-content-space-between">
+          <input type="checkbox" value='{"nome": "${element.c[7].v}", "preco": "${element.c[9].v}"}'>
+          <span class="ml-1">${element.c[7].v}</span>
+          <span class=" ml-auto">${element.c[9].f}</span>
+        </label>`;
+
+        
+
+        }
+      }
+
+    });
+
+    for (let i = 0; i < dropWrapper.length; i++) {
+      dropWrapper[i].innerHTML = adicionaisElement;
+      
+    }
+  });
+ 
+
 }
 
 const sheetID = "1xkdn7hRifJxXMjexXxCPMBpbPrMZnwbRC7Tth8RwTS0"
@@ -39,6 +101,8 @@ const query1 = `/gviz/tq?gid=990731362`
 const endpoint1 = `${url}${sheetID}${query1}`;
 
 console.log(endpoint1);
+
+getAdicionaisPlanilha();
 
 fetch(endpoint1)
 .then(response => response.text())
@@ -60,7 +124,8 @@ fetch(endpoint1)
         var categoria = row.c[2].v;
         var nome = row.c[3].v;
         var preco = row.c[4].f;
-        var ativo = row.c[1];
+        var categoriaAtiva = row.c[1];
+        var ingredientesAtivo = row.c[0];
         //var descr = row.c[5].v;
         //console.log(row.c[2].v);//Categoria
         //console.log(row.c[3].v);//Nome
@@ -76,7 +141,7 @@ fetch(endpoint1)
         }
         //console.log(listaIngred);
 
-        var lanche = new Lanche(ativo ,categoria, nome, preco, "",listaIngred);
+        var lanche = new Lanche(categoriaAtiva,ingredientesAtivo ,categoria, nome, preco, "",listaIngred);
         listaDeLanches.push(lanche);
     });
 
@@ -87,7 +152,8 @@ fetch(endpoint1)
         if(lanche.ativo){
 
             var ingredTexto = lanche.ingredientesParaTexto()
-            columnWrapper.innerHTML = columnWrapper.innerHTML + `<div class="tile is-ancestor box level mb-5">
+            columnWrapper.innerHTML = columnWrapper.innerHTML + `
+                 <div class="tile is-ancestor box level mb-5">
                     <div class="tile is-parent">
                       <article class="tile is-child has-text-centered-mobile">
                         <figure class="image is-128x128 is-inline-block-mobile">
@@ -95,7 +161,7 @@ fetch(endpoint1)
                           </figure>
                       </article>
                     </div>
-                    <div class="tile is-parent is-10">
+                    <div class="tile is-parent is-8">
                       <article class="tile is-child">
                         <p class="title">${lanche.nome}</p>
                         <p class="subtitle">${lanche.preco}</p>
@@ -104,8 +170,34 @@ fetch(endpoint1)
                         </div>
                       </article>
                     </div>
+                    
                     <div class="tile is-parent">
-                      <div class="tile is-child">
+                      <div class="tile is-child is-flex">
+                        <div class="dropdown mr-3" style="height: 40px;">
+                          <div class="dropdown-trigger" onclick="activateDrop(this);" style="height: 40px;"  >
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+                              <span>Adicionais e Observação</span>
+                              <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                              </span>
+                            </button>
+                          </div>
+                          <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item dropWrapper">
+                                
+                                
+                              </div>
+                              <hr class="dropdown-divider">
+                              <div class="dropdown-item">
+                                <textarea class="textarea is-primary" rows="2" placeholder="Observações?"></textarea>
+                              </div>
+                              <div class="is-flex is-justify-content-center">
+                                <button class="button is-success" onclick="adcCarrinhoComAdicionais(this, '${lanche.nome}', '${lanche.preco}' )">Adicionar ao Carrinho</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                         <p class="buttons">
                           <div class="button has-background-primary-dark" onclick="adicionaCarrinho('${lanche.nome}','${lanche.preco}');">
                             <span class="icon is-small">
@@ -113,13 +205,17 @@ fetch(endpoint1)
                             </span>
                           </div>
                         </p>
+                        
                       </div>
                     </div>
-                 </div>` 
+                 </div>
+                 
+                 ` 
         }
-
+        
     });
     
+    getAdicionaisPlanilha();
 });
 
 

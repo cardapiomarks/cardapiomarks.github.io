@@ -45,6 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function activateDrop(el){
 
-  el.classList.toggle("is-active");
+  el.parentNode.classList.toggle("is-active");
 
 }
