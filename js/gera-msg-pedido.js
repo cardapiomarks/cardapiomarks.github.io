@@ -27,25 +27,25 @@ function msgPedido() {
             if(element.observacao == "Sem Observações" && element.stringAdicionaisGerado == ""){
                 //Sem adicionais ou observações
                 msg = msg.concat("%0A----%0A");
-                msg = msg.concat(`${element.nome}%0A`);
+                msg = msg.concat(`*${element.nome}%0A*`);
                 
 
             } else if(element.observacao == "Sem Observações"){
                 //Possui apenas adicionais
                 msg = msg.concat("%0A----%0A");
-                msg = msg.concat(`${element.nome}%0A`);
+                msg = msg.concat(`*${element.nome}%0A*`);
                 msg = msg.concat(`Com estes adicionais: ${element.stringAdicionaisGerado}%0A`);
 
             } else if(element.stringAdicionaisGerado == ""){
                 //Possui apenas obsevação
                 msg = msg.concat("%0A----%0A");
-                msg = msg.concat(`${element.nome}%0A`);
+                msg = msg.concat(`*${element.nome}%0A*`);
                 msg = msg.concat(`Observações: ${element.observacao}%0A`);
 
             } else {
                 //Possui adicionais e observações
                 msg = msg.concat("%0A----%0A");
-                msg = msg.concat(`${element.nome}%0A`);
+                msg = msg.concat(`*${element.nome}%0A*`);
                 msg = msg.concat(`Com estes adicionais: ${element.stringAdicionaisGerado}%0A`);
                 msg = msg.concat(`Observações: ${element.observacao}%0A`);
 

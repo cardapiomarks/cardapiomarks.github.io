@@ -1,0 +1,34 @@
+body {
+  background-color: #457b9d;
+}
+
+.titulo-secao {
+  color: #f1faee;
+  font-size: 300%;
+}
+
+.lanches {
+  background-color: #a8dadc;
+}
+
+.myNavClass {
+  background-color: #1d3557;
+}
+.myNavClass a {
+  color: #f1faee;
+}
+
+.titulo-lanche {
+  color: #1d3557;
+}
+
+.preco-lanche {
+  color: #e63946;
+  font-size: 150%;
+  font-weight: 500;
+}
+
+.ingredientes-lanche {
+  color: #1d3557;
+  font-size: 140%;
+}/*# sourceMappingURL=colors.css.map */

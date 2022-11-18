@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="./css/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/sass/colors.css">
     <title>Meu Cardapio</title>
     <script src="./js/modal-trigger.js"></script>
     <script src="./js/manipula-carrinho.js"></script>
@@ -22,16 +24,16 @@
   </style>
 </head>
 <body>
-    <div class="section sticky-div">
+    <div class="section sticky-div myNavClass">
         <div class="tabs is-centered">
             <ul>
-              <li class="is-active">
+              <li >
                 <a class="js-modal-trigger" data-target="modal-carrinho" onclick="renderizaCarrinho();">
                   <span class="icon is-small"><i class="fa-solid fa-cart-shopping"></i></span>
                   <span>Carrinho</span>
                 </a>
-              </li>
-              <li>
+              </li >
+              <li class="is-active">
                 <a>
                   <span class="icon is-small"><i class="far fa-file-alt" aria-hidden="true"></i></span>
                   <span>Cardápio</span>
@@ -53,10 +55,10 @@
           </div>
     </div>
 
-    <div class="section">
+    <div class="section ">
         <div class="columns is-multiline">
-            <div class="column ">
-                <h1 class="title">Nossos Lanches</h1>
+            <div class="column">
+                <h1 class="title is-flex is-justify-content-center titulo-secao">Nossos Lanches</h1>
                 <!-- <div class="tile is-ancestor box level mb-5">
                     <div class="tile is-parent">
                       <article class="tile is-child has-text-centered-mobile">
@@ -135,6 +137,7 @@
             </div>
         </div>
     </div>
+ 
 
 
     <div class="modal" id="modal-carrinho">
@@ -162,5 +165,6 @@
         </footer>
       </div>
     </div>
+    
 </body>
 </html>

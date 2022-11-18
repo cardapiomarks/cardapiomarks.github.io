@@ -1,0 +1,57 @@
+
+$primaria_azul: #a8dadc;
+$primaria_azul_1: #457b9d;
+$primaria_azul_2: #1d3557;
+$primaria_branco: #f1faee;
+$primaria_vermelho: #e63946;
+
+body{
+
+    background-color: $primaria_azul_1;
+
+}
+
+.titulo-secao{
+
+    color: $primaria_branco;
+    font-size: 300%;
+
+}
+
+.lanches{
+
+    background-color: $primaria_azul;
+
+}
+
+.myNavClass{
+
+    background-color: $primaria_azul_2;
+
+    a{
+        color: $primaria_branco;
+    }
+
+}
+
+.titulo-lanche{
+
+
+    color: $primaria_azul_2;
+
+
+}
+
+.preco-lanche{
+
+    color: $primaria_vermelho;
+    font-size: 150%;
+    font-weight: 500;
+
+}
+.ingredientes-lanche{
+
+    color: $primaria_azul_2;
+    font-size: 140%;
+
+}

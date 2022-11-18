@@ -1,12 +1,12 @@
 
 //objeto lanche
-function Lanche(categoriaAtiva,ingredientesAtivo ,cat, nome, preco, desc, ingred) {
+function Lanche(categoriaAtiva,ingredientesAtivo ,cat, nome, preco, imgUrl, ingred) {
 
     this.ativo = ((categoriaAtiva.v == "Sim") && (ingredientesAtivo.v == "Sim")) ? true : false;
     this.categoria = cat
     this.nome = nome;
     this.preco = preco;
-    this.desc = desc;
+    this.imgUrl = imgUrl;
     this.ingredientes = ingred;
 
 
@@ -126,7 +126,7 @@ fetch(endpoint1)
         var preco = row.c[4].f;
         var categoriaAtiva = row.c[1];
         var ingredientesAtivo = row.c[0];
-        //var descr = row.c[5].v;
+        var imgUrl = row.c[5].v;
         //console.log(row.c[2].v);//Categoria
         //console.log(row.c[3].v);//Nome
         //console.log(row.c[4].f);//Preço
@@ -141,7 +141,7 @@ fetch(endpoint1)
         }
         //console.log(listaIngred);
 
-        var lanche = new Lanche(categoriaAtiva,ingredientesAtivo ,categoria, nome, preco, "",listaIngred);
+        var lanche = new Lanche(categoriaAtiva,ingredientesAtivo ,categoria, nome, preco, imgUrl,listaIngred);
         listaDeLanches.push(lanche);
     });
 
@@ -153,19 +153,19 @@ fetch(endpoint1)
 
             var ingredTexto = lanche.ingredientesParaTexto()
             columnWrapper.innerHTML = columnWrapper.innerHTML + `
-                 <div class="tile is-ancestor box level mb-5">
+                 <div class="tile is-ancestor box level mb-5 lanches">
                     <div class="tile is-parent">
                       <article class="tile is-child has-text-centered-mobile">
-                        <figure class="image is-128x128 is-inline-block-mobile">
-                            <img src="https://bulma.io/images/placeholders/128x128.png">
+                        <figure class="image is-inline-block-mobile" height="100" >
+                            <img src="${lanche.imgUrl}">
                           </figure>
                       </article>
                     </div>
                     <div class="tile is-parent is-8">
                       <article class="tile is-child">
-                        <p class="title">${lanche.nome}</p>
-                        <p class="subtitle">${lanche.preco}</p>
-                        <div class="content">
+                        <p class="title titulo-lanche">${lanche.nome}</p>
+                        <p class="subtitle preco-lanche">${lanche.preco}</p>
+                        <div class="content ingredientes-lanche">
                           <p>${ingredTexto}</p>
                         </div>
                       </article>
