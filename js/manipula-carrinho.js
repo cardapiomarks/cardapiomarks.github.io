@@ -1,3 +1,4 @@
+
 //objetos
 function LancheCarrinho(id, nome, preco){
 
@@ -174,6 +175,16 @@ function adicionaCarrinho(nome, preco){
     idLanche++;
     window.localStorage.setItem('ID',idLanche);
 
+    
+    //Código do framework sweetalert2
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Item adicionado ao carrinho',
+        showConfirmButton: false,
+        timer: 1500
+      })
+
 }
 function adcCarrinhoComAdicionais(el, nome, preco){
 
@@ -193,12 +204,14 @@ function adcCarrinhoComAdicionais(el, nome, preco){
             if (checkBox.checked) {
                 //console.log(JSON.parse(checkBox.value).nome);
                 novoLanche.addAdicionais(checkBox.value);
+                checkBox.checked = false;
     
             }
             
         });
     }
     novoLanche.setObservacao(textFieldElement.value);
+    textFieldElement.value = ""
     
     novoLanche.stringAdicionais();
     //console.log(novoLanche.adicionais);
@@ -216,6 +229,15 @@ function adcCarrinhoComAdicionais(el, nome, preco){
 /* 
     novoLanche.custoTotalString();
     novoLanche.stringAdicionais(); */
+
+    //Código do framework sweetalert2
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Item adicionado ao carrinho',
+        showConfirmButton: false,
+        timer: 1500
+      })
 
 }
 
