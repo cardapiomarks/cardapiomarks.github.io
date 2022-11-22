@@ -188,7 +188,7 @@ fetch(endpoint1)
                     
                     <div class="tile is-parent is-flex is-align-items-center ">
                       <div class="tile is-child is-flex is-flex-direction-column">
-                        <div class="dropdown mr-3" style="height: 40px;">
+                        <div class="dropdown is-justify-content-center" style="height: 40px;">
                           <div class="dropdown-trigger" onclick="activateDrop(this);" style="height: 40px;"  >
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
                               <span>Adicionais e Observação</span>
