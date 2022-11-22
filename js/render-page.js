@@ -156,23 +156,38 @@ fetch(endpoint1)
                  <div class="tile is-ancestor box level mb-5 lanches">
                     <div class="tile is-parent">
                       <article class="tile is-child has-text-centered-mobile">
-                        <figure class="image is-inline-block-mobile" height="100" >
-                            <img src="${lanche.imgUrl}">
+                        <figure class="image is-inline-block-mobile" >
+                            <img class="is-rounded" src="${lanche.imgUrl}">
                           </figure>
                       </article>
                     </div>
-                    <div class="tile is-parent is-8">
+                    <div class="tile is-parent is-8 is-flex is-align-items-center">
                       <article class="tile is-child">
-                        <p class="title titulo-lanche">${lanche.nome}</p>
-                        <p class="subtitle preco-lanche">${lanche.preco}</p>
+                        <p class="title titulo-lanche mb-5">
+  
+                        <span class="icon">
+                          <i class="fa-solid fa-burger"></i>
+                        </span>
+                      ${lanche.nome}</p>
+                        <p class="subtitle preco-lanche mb-1">
+                          
+
+                          ${lanche.preco}
+                        </p>
                         <div class="content ingredientes-lanche">
-                          <p>${ingredTexto}</p>
+                          <p>
+                          <span class="icon">
+                            <i class="fa-solid fa-utensils"></i>
+                          </span>${ingredTexto}
+                          <span class="icon">
+                            <i class="fa-solid fa-utensils"></i>
+                          </span></p>
                         </div>
                       </article>
                     </div>
                     
-                    <div class="tile is-parent">
-                      <div class="tile is-child is-flex">
+                    <div class="tile is-parent is-flex is-align-items-center ">
+                      <div class="tile is-child is-flex is-flex-direction-column">
                         <div class="dropdown mr-3" style="height: 40px;">
                           <div class="dropdown-trigger" onclick="activateDrop(this);" style="height: 40px;"  >
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
@@ -199,7 +214,7 @@ fetch(endpoint1)
                           </div>
                         </div>
                         <p class="buttons">
-                          <div class="button has-background-primary-dark" onclick="adicionaCarrinho('${lanche.nome}','${lanche.preco}');">
+                          <div class="button has-background-danger-dark	" onclick="adicionaCarrinho('${lanche.nome}','${lanche.preco}');">
                             <span class="icon is-small">
                               <i class="fas fa-cart-plus has-text-white"></i>
                             </span>
