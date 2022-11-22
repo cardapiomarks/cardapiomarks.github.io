@@ -6,6 +6,11 @@ body {
   color: #1d3557;
   font-size: 300%;
 }
+@media (max-width: 600px) {
+  .titulo-secao {
+    font-size: 200%;
+  }
+}
 
 .lanches {
   background: rgb(255, 240, 93);

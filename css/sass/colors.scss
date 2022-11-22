@@ -5,6 +5,16 @@ $primaria_azul_2: #1d3557;
 $primaria_branco: #f1faee;
 $primaria_vermelho: #cc0f35;
 
+$display-cel: 600px;
+
+@mixin cel {
+    @media (max-width: #{$display-cel}) {
+        
+        @content;
+
+    }
+}
+
 body{
 
     background-color: $primaria_branco;
@@ -15,6 +25,12 @@ body{
 
     color: $primaria_azul_2;
     font-size: 300%;
+
+    @include cel {
+
+        font-size: 200%;
+
+    }
 
 }
 
