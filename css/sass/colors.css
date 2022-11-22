@@ -8,7 +8,8 @@ body {
 }
 
 .lanches {
-  background-color: #a8dadc;
+  background: rgb(255, 240, 93);
+  background: linear-gradient(135deg, rgb(255, 240, 93) 0%, rgb(255, 154, 154) 41%, rgb(255, 255, 255) 78%);
 }
 
 .myNavClass {
@@ -23,7 +24,7 @@ body {
 }
 
 .preco-lanche {
-  color: #e63946;
+  color: #cc0f35;
   font-size: 150%;
   font-weight: 500;
 }
