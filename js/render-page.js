@@ -188,16 +188,16 @@ fetch(endpoint1)
                     
                     <div class="tile is-parent is-flex is-align-items-center ">
                       <div class="tile is-child is-flex is-flex-direction-column">
-                        <div class="dropdown is-justify-content-center" style="height: 40px;">
-                          <div class="dropdown-trigger" onclick="activateDrop(this);" style="height: 40px;"  >
-                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+                        <div class="dropdown is-justify-content-center" style="height: 40px;width: 100%;">
+                          <div class="dropdown-trigger" onclick="activateDrop(this);" style="height: 40px;width: 100%;"  >
+                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2" style="width: 100%;">
                               <span>Adicionais e Observação</span>
                               <span class="icon is-small">
                                 <i class="fas fa-angle-down" aria-hidden="true"></i>
                               </span>
                             </button>
                           </div>
-                          <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+                          <div class="dropdown-menu" id="dropdown-menu2" role="menu" style="width: 100%;">
                             <div class="dropdown-content">
                               <div class="dropdown-item dropWrapper">
                                 

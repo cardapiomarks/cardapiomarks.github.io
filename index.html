@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="shortcut icon" href="./images/2.png" type="image/x-icon">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./css/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/sass/colors.css">
+    <link rel="stylesheet" href="./css/custom.css">
     <title>Meu Cardapio</title>
     <script src="./js/modal-trigger.js"></script>
     <script src="./js/manipula-carrinho.js"></script>
@@ -24,7 +25,13 @@
   </style>
 </head>
 <body>
-    <div class="section sticky-div myNavClass">
+  
+  <div class="client-logo is-flex is-align-content-center is-justify-content-center">
+    <figure class="image is-128x128">
+      <img src="./images/1.png">
+    </figure>  </div>
+  
+  <div class="section sticky-div myNavClass">
         <div class="tabs is-centered">
             <ul>
               <li >
@@ -40,13 +47,13 @@
                 </a>
               </li>
               <li>
-                <a>
+                <a >
                   <span class="icon is-small"><i class="fa-solid fa-user"></i></span>
                   <span>Quem Somos</span>
                 </a>
               </li>
               <li>
-                <a>
+                <a class="js-modal-trigger" data-target="modal-contato">
                   <span class="icon is-small"><i class="fa-solid fa-at"></i></span>
                   <span>Contato</span>
                 </a>
@@ -169,6 +176,36 @@
         </footer>
       </div>
     </div>
+
+    <div class="modal" id="modal-contato">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head is-flex is-justify-content-center">
+          <p class="modal-card-title" style="text-align: center;">Contatos</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body is-flex is-flex-direction-column">
+          <button class="button is-large mt-6" id="btnWpp" onclick="location.href='https://wa.me/5562982723635'">
+            <span class="icon">
+              <i class="fa-brands fa-whatsapp"></i>
+            </span>
+          </button>
+          <button class="button is-large mt-5 mb-6" id="btnInsta" onclick="location.href='https://instagram.com/mathmarkss'">
+            <span class="icon">
+              <i class="fa-brands fa-instagram"></i>
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Meu Cardápio Online&copy</strong>, Criado por <a href="https://matheusmarques.online">Matheus Marques</a>.
+        </p>
+      </div>
+    </footer>
 
 </body>
 </html>
