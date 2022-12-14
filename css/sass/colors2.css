@@ -1,0 +1,79 @@
+body {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.titulo-secao {
+  color: #f1faee;
+  font-size: 300%;
+}
+@media (max-width: 600px) {
+  .titulo-secao {
+    font-size: 200%;
+  }
+}
+
+.lanches {
+  background: whitesmoke;
+  border: 1.5px solid rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 600px) {
+  .lanches {
+    padding: 0;
+  }
+}
+
+.myNavClass {
+  background-color: #1d3557;
+}
+.myNavClass a {
+  color: #f1faee;
+}
+
+.titulo-lanche {
+  color: #1d3557;
+}
+@media (max-width: 600px) {
+  .titulo-lanche {
+    display: flex;
+    color: #f1faee;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 0 0.6rem 0;
+  }
+  .titulo-lanche .icon {
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .infoWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.preco-lanche {
+  color: #cc0f35;
+  font-size: 150%;
+  font-weight: 500;
+}
+@media (max-width: 600px) {
+  .preco-lanche {
+    font-size: 200%;
+    margin: 0 0 1.5rem 0;
+  }
+}
+
+.ingredientes-lanche {
+  color: #1d3557;
+  font-size: 140%;
+}
+@media (max-width: 600px) {
+  .ingredientes-lanche .icon {
+    padding: 0 1rem 0 1rem;
+  }
+}/*# sourceMappingURL=colors2.css.map */

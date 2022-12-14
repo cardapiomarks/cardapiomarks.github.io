@@ -153,78 +153,77 @@ fetch(endpoint1)
 
             var ingredTexto = lanche.ingredientesParaTexto()
             columnWrapper.innerHTML = columnWrapper.innerHTML + `
-                 <div class="tile is-ancestor box level mb-5 lanches">
-                    <div class="tile is-parent">
-                      <article class="tile is-child has-text-centered-mobile">
-                        <figure class="image is-inline-block-mobile" >
-                            <img class="is-rounded" src="${lanche.imgUrl}">
-                          </figure>
-                      </article>
-                    </div>
-                    <div class="tile is-parent is-8 is-flex is-align-items-center">
-                      <article class="tile is-child">
-                        <p class="title titulo-lanche mb-5">
-  
-                        <span class="icon">
-                          <i class="fa-solid fa-burger"></i>
-                        </span>
-                      ${lanche.nome}</p>
-                        <p class="subtitle preco-lanche mb-1">
-                          
+            <div class="tile is-ancestor box level mb-5 lanches">
+            <div class="tile is-parent">
+              <article class="tile is-child has-text-centered-mobile">
+                <figure class="image is-inline-block-mobile" >
+                    <img class="is-rounded" src="${lanche.imgUrl}">
+                  </figure>
+              </article>
+            </div>
+            <div class="tile is-parent is-8 is-flex is-align-items-center">
+              <article class="tile is-child infoWrapper">
+                <p class="title titulo-lanche mb-5">
 
-                          ${lanche.preco}
-                        </p>
-                        <div class="content ingredientes-lanche">
-                          <p>
-                          <span class="icon">
-                            <i class="fa-solid fa-utensils"></i>
-                          </span>${ingredTexto}
-                          <span class="icon">
-                            <i class="fa-solid fa-utensils"></i>
-                          </span></p>
-                        </div>
-                      </article>
-                    </div>
-                    
-                    <div class="tile is-parent is-flex is-align-items-center ">
-                      <div class="tile is-child is-flex is-flex-direction-column">
-                        <div class="dropdown is-justify-content-center" style="height: 40px;width: 100%;">
-                          <div class="dropdown-trigger" onclick="activateDrop(this);" style="height: 40px;width: 100%;"  >
-                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2" style="width: 100%;">
-                              <span>Adicionais e Observação</span>
-                              <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
-                              </span>
-                            </button>
-                          </div>
-                          <div class="dropdown-menu" id="dropdown-menu2" role="menu" style="width: 100%;">
-                            <div class="dropdown-content">
-                              <div class="dropdown-item dropWrapper">
-                                
-                                
-                              </div>
-                              <hr class="dropdown-divider">
-                              <div class="dropdown-item">
-                                <textarea class="textarea is-primary" rows="2" placeholder="Observações?"></textarea>
-                              </div>
-                              <div class="is-flex is-justify-content-center">
-                                <button class="button is-success" onclick="adcCarrinhoComAdicionais(this, '${lanche.nome}', '${lanche.preco}' )">Adicionar ao Carrinho</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <p class="buttons">
-                          <div class="button has-background-danger-dark	" onclick="adicionaCarrinho('${lanche.nome}','${lanche.preco}');">
-                            <span class="icon is-small">
-                              <i class="fas fa-cart-plus has-text-white"></i>
-                            </span>
-                          </div>
-                        </p>
+                <span class="icon">
+                  <i class="fa-solid fa-burger"></i>
+                </span>
+              ${lanche.nome}</p>
+                <p class="preco-lanche">
+                  
+
+                  ${lanche.preco}
+                </p>
+                <div class="content ingredientes-lanche">
+                  <p>
+                  <span class="icon">
+                    <i class="fa-solid fa-utensils"></i>
+                  </span>${ingredTexto}
+                  <span class="icon">
+                    <i class="fa-solid fa-utensils"></i>
+                  </span></p>
+                </div>
+              </article>
+            </div>
+            
+            <div class="tile is-parent is-flex is-align-items-center ">
+              <div class="tile is-child is-flex is-flex-direction-column">
+                <div class="dropdown is-justify-content-center" style="height: 40px;width: 100%;">
+                  <div class="dropdown-trigger" onclick="activateDrop(this);" style="height: 40px;width: 100%;"  >
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2" style="width: 100%;">
+                      <span>Adicionais e Observação</span>
+                      <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="dropdown-menu" id="dropdown-menu2" role="menu" style="width: 100%;">
+                    <div class="dropdown-content">
+                      <div class="dropdown-item dropWrapper">
+                        
                         
                       </div>
+                      <hr class="dropdown-divider">
+                      <div class="dropdown-item">
+                        <textarea class="textarea is-primary" rows="2" placeholder="Observações?"></textarea>
+                      </div>
+                      <div class="is-flex is-justify-content-center">
+                        <button class="button is-success" onclick="adcCarrinhoComAdicionais(this, '${lanche.nome}', '${lanche.preco}' )">Adicionar ao Carrinho</button>
+                      </div>
                     </div>
-                 </div>
-                 
+                  </div>
+                </div>
+                <p class="buttons">
+                  <div class="button has-background-danger-dark	" onclick="adicionaCarrinho('${lanche.nome}','${lanche.preco}');">
+                    <span class="icon is-small">
+                      <i class="fas fa-cart-plus has-text-white"></i>
+                    </span>
+                  </div>
+                </p>
+                
+              </div>
+            </div>
+         </div>
                  ` 
         }
         
